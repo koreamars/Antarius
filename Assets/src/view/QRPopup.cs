@@ -28,7 +28,9 @@ public class QRPopup : MonoBehaviour {
 
     IEnumerator Start()
     {
-        cameraMat = ScanScreenView.GetComponent<Image>().material;
+        plane = GameObject.Find("scanScreen");
+        //cameraMat = ScanScreenView.GetComponent<Image>().material;
+        cameraMat = plane.GetComponent<MeshRenderer>().material;
         decoder = this.GetComponent<WebCamDecoder>();
 
         // get encoders;
@@ -41,7 +43,7 @@ public class QRPopup : MonoBehaviour {
 
         qrEncoder.Options.Margin = 1;
         pdf417Encoder.Options.Margin = 2;
-
+        Debug.Log("get encoders");
         // init web cam;
         if (Application.platform == RuntimePlatform.OSXWebPlayer ||
             Application.platform == RuntimePlatform.WindowsWebPlayer)
@@ -53,7 +55,7 @@ public class QRPopup : MonoBehaviour {
         var deviceName = devices[0].name;
         cameraTexture = new WebCamTexture(deviceName, 1920, 1080);
         cameraTexture.Play();
-
+        Debug.Log("init web cam");
         // start decoding;
         yield return StartCoroutine(decoder.StartDecoding(cameraTexture));
 
@@ -63,19 +65,19 @@ public class QRPopup : MonoBehaviour {
         plane.transform.rotation = plane.transform.rotation *
             Quaternion.AngleAxis(cameraTexture.videoRotationAngle, Vector3.up);
 
-
+        Debug.Log("start decoding");
     }
 
     void Update()
     {
         DecodeResult result = decoder.Result;
         bool decoded = false;
+        //Debug.Log("result" + result.Text);
         if (result.Success && resultString.text != result.Text)
         {
             resultString.text = result.Text;
             decoded = true;
-            Debug.Log(string.Format(
-                "Decoded: [{0}]{1}", result.BarcodeType, result.Text));
+            Debug.Log(string.Format("Decoded: [{0}]{1}", result.BarcodeType, result.Text));
         }
     }
 
