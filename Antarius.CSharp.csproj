@@ -70,6 +70,9 @@
     <Reference Include="zxing">
       <HintPath>Assets\QRCode\zxing.dll</HintPath>
     </Reference>
+    <Reference Include="CielaSpike.Unity.Barcode">
+      <HintPath>Assets\CielaSpike\Simple QR Code\lib\CielaSpike.Unity.Barcode.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Antarius.CSharp.Plugins.csproj">
@@ -78,11 +81,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CielaSpike\Simple QR Code\Example\ExampleBarcodeController.cs" />
+    <Compile Include="Assets\CielaSpike\Simple QR Code\WebCamDecoder.cs" />
     <Compile Include="Assets\QRCode\QRcodeScript.cs" />
+    <Compile Include="Assets\src\SystemManager.cs" />
     <Compile Include="Assets\src\control\MainController.cs" />
     <Compile Include="Assets\src\control\MenuController.cs" />
     <Compile Include="Assets\src\view\ListBtn.cs" />
     <Compile Include="Assets\src\view\MemberList.cs" />
+    <Compile Include="Assets\src\view\QRPopup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />

@@ -66,5 +66,6 @@ public class MemberList : MonoBehaviour {
     private void ListBtnClick(int idx)
     {
         Debug.Log("ListBtnClick " + idx);
+        SystemManager.GetInstance().QRCodePopupOpen();
     }
 }

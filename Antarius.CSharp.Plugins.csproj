@@ -70,6 +70,9 @@
     <Reference Include="zxing">
       <HintPath>Assets\QRCode\zxing.dll</HintPath>
     </Reference>
+    <Reference Include="CielaSpike.Unity.Barcode">
+      <HintPath>Assets\CielaSpike\Simple QR Code\lib\CielaSpike.Unity.Barcode.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Plugins\Pixelplacement\iTween\Sample\MoveSample.cs" />
